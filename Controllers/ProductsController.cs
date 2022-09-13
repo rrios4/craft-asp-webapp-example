@@ -21,5 +21,15 @@ namespace crafts_webapp.Controllers
         {
             return ProductService.GetProducts();
         }
+        //[HttpPost]
+        [Route("Rate")]
+        [HttpGet]
+        public ActionResult Get(
+            [FromQuery] string ProductId, 
+            [FromQuery] int Rating)
+        {
+            ProductService.AddRating(ProductId, Rating);
+            return Ok();
+        }
     }
 }
