@@ -1,4 +1,5 @@
 ﻿@page
+@using crafts_webapp.Components
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
@@ -22,7 +23,7 @@
     }
 </div> *@
 
-<div class="row row-cols-1 row-cols-md-3 g-4">
+@* <div class="row row-cols-1 row-cols-md-3 g-4">
     @foreach (var product in Model.Products)
     {
         <div class="col">
@@ -35,4 +36,7 @@
             </div>
         </div>
     }
-</div>
+</div> *@
+@(await Html.RenderComponentAsync<ProductList>(RenderMode.ServerPrerendered))
+
+<script src="_framework/blazor.server.js"></script>
